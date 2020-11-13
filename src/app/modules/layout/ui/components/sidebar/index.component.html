@@ -1,0 +1,49 @@
+<div class="sidebar">
+  <div class="header">
+    <h1>Angular</h1>
+  </div>
+  <div class="content">
+    <div class="profile">
+      <img
+        class="avatar"
+        src="https://2.bp.blogspot.com/_h937HNtz6ek/S2k-dfThPmI/AAAAAAAAW1g/QdJ5eMX4IaU/s280/avatar-addiction-01.jpg"
+        width="45"
+        height="45"
+      />
+      <div class="profile-info">
+        <p class="full-name">Sierra Ferguson</p>
+        <p class="email">s.ferguson@gmail.com</p>
+      </div>
+    </div>
+
+    <div *ngFor="let route of routes">
+      <div>
+        <layout-navigation-item [route]="route"></layout-navigation-item>
+      </div>
+    </div>
+    <!-- <a routerLink="/users">
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#contacts-active'"
+        [width]="'22px'"
+        [classes]="'my-icon-class'"
+      ></svg-icon-sprite>
+      <p>Users</p>
+    </a>
+    <div>
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#dashboard-active'"
+        [width]="'22px'"
+        [classes]="'my-icon-class'"
+      ></svg-icon-sprite>
+      <p>Departments</p>
+    </div>
+    <div>
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#tasks'"
+        [width]="'22px'"
+        [classes]="'my-icon-class'"
+      ></svg-icon-sprite>
+      <p>Add contact</p>
+    </div> -->
+  </div>
+</div>

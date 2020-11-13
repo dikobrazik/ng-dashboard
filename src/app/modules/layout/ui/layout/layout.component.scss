@@ -1,0 +1,16 @@
+#root {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+    "sidebar search"
+    "sidebar content";
+
+  & .search-container {
+    grid-area: search;
+
+    & input {
+      width: 100%;
+    }
+  }
+}
