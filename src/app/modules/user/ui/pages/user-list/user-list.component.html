@@ -1,12 +1,20 @@
 <table>
   <thead>
     <tr>
+      <th>
+        <ud-checkbox [name]="'all'"></ud-checkbox>
+      </th>
       <th *ngFor="let header of headers">{{ header }}</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
-      <td class="name">{{ user.name }}</td>
+      <td>
+        <ud-checkbox [name]="user.id"></ud-checkbox>
+      </td>
+      <td class="name">
+        {{ user.name }}
+      </td>
       <td>{{ user.email }}</td>
       <td>{{ user.company }}</td>
       <td>{{ user.role }}</td>
