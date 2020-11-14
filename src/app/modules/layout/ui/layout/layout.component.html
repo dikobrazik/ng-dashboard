@@ -1,6 +1,16 @@
 <div id="root">
   <layout-sidebar></layout-sidebar>
   <div class="search-container">
-    <input />
+    <div class="search">
+      <ud-icon [iconName]="'search'"> </ud-icon>
+      <p>Global search</p>
+    </div>
+    <div class="notification">
+      <ud-icon [iconName]="'bell'"> </ud-icon>
+      <span></span>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
 </div>
