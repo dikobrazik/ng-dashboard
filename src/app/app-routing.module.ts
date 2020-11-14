@@ -1,7 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './modules/layout/ui/layout/layout.component';
 import { UsersListPage } from './modules/user/ui/pages/user-list/user-list.component';
+import { UserModule } from './modules/user/user.module';
 
 const routes: Routes = [
   {
@@ -20,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), UserModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

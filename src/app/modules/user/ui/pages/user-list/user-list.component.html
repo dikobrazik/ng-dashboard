@@ -1,15 +1,17 @@
-<p>user-list works!</p>
-<!-- <nav>
-  <ul>
-    <li>
-      <a routerLink="/first-component" routerLinkActive="active"
-        >First Component</a
-      >
-    </li>
-    <li>
-      <a routerLink="/second-component" routerLinkActive="active"
-        >Second Component</a
-      >
-    </li>
-  </ul>
-</nav> -->
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{ header }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td class="name">{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.company }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.forecast }} %</td>
+      <td>{{ user.lastActivityDate }}</td>
+    </tr>
+  </tbody>
+</table>

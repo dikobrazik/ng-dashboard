@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { UserService } from './domain/services/UserService';
 import { UsersListPage } from './ui/pages/user-list/user-list.component';
 
 @NgModule({
   declarations: [UsersListPage],
-  imports: [RouterModule],
+  imports: [CommonModule],
+  providers: [UserService],
 })
 export class UserModule {}

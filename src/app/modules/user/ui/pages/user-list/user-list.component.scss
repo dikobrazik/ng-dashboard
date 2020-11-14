@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 4px;
+
+  & thead tr th {
+    text-align: start;
+    padding: 14px 24px;
+    border-bottom: 1px solid #ebeff2;
+
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 13px;
+    color: #334d6e;
+    opacity: 0.5;
+  }
+
+  & tbody tr td {
+    border-bottom: 1px solid #ebeff2;
+    padding: 20px 24px;
+    font-family: Poppins;
+    font-size: 13px;
+    color: #707683;
+
+    &.name {
+      font-weight: 500;
+      font-size: 15px;
+      color: #323c47;
+    }
+  }
+}
