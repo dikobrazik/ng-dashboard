@@ -7,5 +7,9 @@ import { Route } from '../sidebar/index.component';
   styleUrls: ['./index.component.scss'],
 })
 export class LayoutComponentsNavigationItem {
-  @Input() route?: Route;
+  @Input() route: Route = {
+    icon: 'tasks',
+    label: '',
+    href: '',
+  };
 }

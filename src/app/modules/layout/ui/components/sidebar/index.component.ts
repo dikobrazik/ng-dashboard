@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { IconNames } from 'src/app/modules/ud-ui/components/icon/index.component';
 
 export type Route = {
   href: string;
-  icon: string;
+  icon: IconNames;
   label: string;
 };
 

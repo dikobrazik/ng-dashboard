@@ -4,8 +4,8 @@ import { UsersListPage } from './modules/user/ui/pages/user-list/user-list.compo
 
 const routes: Routes = [
   { path: 'users', component: UsersListPage },
-  // { path: 'departments' },
-  // { path: 'contacts/add' },
+  { path: 'departments', component: UsersListPage },
+  { path: 'contacts', children: [{ path: 'add', component: UsersListPage }] },
 ];
 
 @NgModule({

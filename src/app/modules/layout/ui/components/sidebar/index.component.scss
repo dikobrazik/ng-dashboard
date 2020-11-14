@@ -1,6 +1,5 @@
 .sidebar {
-  grid-area: sidebar;
-  height: 100%;
+  grid-area: 1 / 1 / 2 / 1;
   background: #ffffff;
   box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
 
@@ -16,9 +15,12 @@
 
   & .content {
     padding: 24px 27px;
+    border-bottom: 1px solid #ebeff2;
+
     & .profile {
       display: flex;
       flex-direction: row;
+      margin-bottom: 30px;
 
       & .avatar {
         border-radius: 50px;

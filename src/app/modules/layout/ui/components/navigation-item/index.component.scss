@@ -1,0 +1,15 @@
+.nav-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+  outline: none;
+  cursor: pointer;
+
+  & .nav-label {
+    margin-left: 16.5px;
+
+    &.active {
+      color: #109cf1;
+    }
+  }
+}

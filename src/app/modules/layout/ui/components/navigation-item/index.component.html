@@ -1,8 +1,9 @@
-<a [routerLink]="'route!.link'">
-  <svg-icon-sprite
-    [src]="'assets/sprites/sprite.svg#route?.icon'"
-    [width]="'22px'"
-    [classes]="'my-icon-class'"
-  ></svg-icon-sprite>
-  <p>{{ route?.label }}</p>
-</a>
+<div
+  [routerLink]="route.href"
+  routerLinkActive
+  #rla="routerLinkActive"
+  class="nav-item"
+>
+  <ud-icon [iconName]="route.icon" [active]="rla.isActive"></ud-icon>
+  <p class="nav-label" [class.active]="rla.isActive">{{ route.label }}</p>
+</div>
