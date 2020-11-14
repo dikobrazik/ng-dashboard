@@ -1,6 +1,15 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
-export type IconNames = 'contacts-active' | 'dashboard-active' | 'tasks';
+export type IconNames =
+  | 'contacts-active'
+  | 'dashboard-active'
+  | 'tasks'
+  | 'search'
+  | 'bell'
+  | 'arrow-up'
+  | 'edit'
+  | 'plus-round'
+  | 'toggle';
 
 @Component({
   selector: 'ud-icon',
