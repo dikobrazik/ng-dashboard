@@ -1,0 +1,36 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 20px;
+  justify-content: space-between;
+  cursor: pointer;
+
+  & .left-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & div {
+      margin-left: 12px;
+    }
+  }
+
+  & .title {
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    color: #0b1047;
+    margin-bottom: 4px;
+  }
+
+  & .subtitle {
+    font-family: Source Sans Pro;
+    font-size: 12px;
+    color: #9d9fb5;
+  }
+
+  & .controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="head">
+  <p>#</p>
+  <p>1</p>
+  <p>2</p>
+</div>
+<div class="list">
+  <details open>
+    <summary>
+      <department-list-item
+        [department]="{ id: '197', name: 'Root Department' }"
+      ></department-list-item>
+    </summary>
+    <department-list-item
+      class="child"
+      [department]="{
+        id: '203',
+        createdAt: '12.04.2017 в 08:23',
+        name: 'Разработка'
+      }"
+      (onAddClick)="onAddClick($event)"
+      (onEditClick)="onEditClick($event)"
+      [isControlsVisible]="true"
+    ></department-list-item>
+    <department-list-item
+      class="child"
+      [department]="{ id: '205', name: 'Внедрение' }"
+    ></department-list-item>
+  </details>
+</div>

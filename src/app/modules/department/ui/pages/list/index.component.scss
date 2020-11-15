@@ -1,0 +1,38 @@
+.head {
+  padding: 16px 20px;
+  background: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  & p {
+    margin-right: 13px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #0b1047;
+  }
+}
+
+.list {
+  margin-top: 10px;
+  background-color: #fff;
+
+  & summary {
+    outline: none;
+    border: 1px solid #f4f5f7;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  & details .child {
+    display: block;
+    padding: 0 20px;
+    border: 1px solid #f4f5f7;
+  }
+}

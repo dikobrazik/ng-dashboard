@@ -20,6 +20,10 @@ table {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
 
+  & tbody tr {
+    cursor: pointer;
+  }
+
   & tbody tr td {
     border-bottom: 1px solid #ebeff2;
     padding: 20px 12px;

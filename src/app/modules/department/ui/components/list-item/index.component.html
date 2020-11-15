@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="left-side">
+    <ud-icon
+      [iconName]="opened ? 'arrow-down' : 'arrow-up'"
+      [active]="true"
+      [width]="'10px'"
+      [height]="'7px'"
+    ></ud-icon>
+    <div>
+      <p class="title">{{ department?.name }}</p>
+      <p class="subtitle">ID {{ department?.id }}</p>
+    </div>
+  </div>
+  <div *ngIf="department?.createdAt"></div>
+  <div *ngIf="department?.createdAt">
+    <p class="title" [style.fontSize]="'14px'">{{ department?.createdAt }}</p>
+    <p class="subtitle">Создан</p>
+  </div>
+  <div *ngIf="isControlsVisible" class="controls">
+    <div (click)="onAdd()">
+      <ud-icon
+        [iconName]="'plus-round'"
+        [width]="'24px'"
+        [height]="'24px'"
+        [active]="true"
+        [style.marginRight]="'23px'"
+      ></ud-icon>
+    </div>
+
+    <div (click)="onEdit()">
+      <ud-icon
+        [iconName]="'edit'"
+        [width]="'24px'"
+        [height]="'24px'"
+        [active]="true"
+      ></ud-icon>
+    </div>
+  </div>
+</div>

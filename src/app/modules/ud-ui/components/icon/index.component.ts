@@ -7,6 +7,7 @@ export type IconNames =
   | 'search'
   | 'bell'
   | 'arrow-up'
+  | 'arrow-down'
   | 'edit'
   | 'plus-round'
   | 'toggle';
@@ -19,6 +20,8 @@ export class UDComponentsIcon implements OnChanges {
   @Input() iconName?: IconNames = 'tasks';
   @Input() active?: boolean;
   @Input() classes?: string = '';
+  @Input() width?: string = '20px';
+  @Input() height?: string = '20px';
 
   ngOnChanges() {}
 }
