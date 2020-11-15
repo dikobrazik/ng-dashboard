@@ -1,6 +1,7 @@
-label {
-  & label {
-    display: block;
+div {
+  display: inline;
+  & .checkbox {
+    display: inline-block;
     width: 16px;
     height: 16px;
     border: 2px solid #d5d5d5;
@@ -14,5 +15,12 @@ label {
     &:checked + label {
       background-color: blue;
     }
+  }
+
+  & .label {
+    margin-left: 12px;
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    color: #0b1047;
   }
 }

@@ -9,6 +9,7 @@ import { uniqueId } from 'lodash';
 export class UDComponentsCheckbox implements OnInit {
   id: string = '';
   @Input() name: string = '';
+  @Input() label?: string = '';
 
   ngOnInit() {
     this.id = uniqueId('checkbox-');

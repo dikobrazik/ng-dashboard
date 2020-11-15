@@ -1,4 +1,5 @@
-<label for="{{ id }}">
-  <label for="{{ id }}"></label>
+<div>
+  <label for="{{ id }}" class="checkbox"></label>
   <input type="checkbox" [name]="name" id="{{ id }}" />
-</label>
+  <label *ngIf="label" for="{{ id }}" class="label">{{ label }}</label>
+</div>
