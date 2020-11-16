@@ -50,16 +50,22 @@ form {
       flex-direction: row;
       margin-bottom: 40px;
 
-      & span {
-        font-family: Source Sans Pro;
-        padding: 8px;
-        margin-right: 12px;
-        border: 1px solid #109cf1;
-        border-radius: 4px;
+      & div {
+        & input {
+          display: none;
 
-        &.selected {
-          background: #109cf1;
-          color: #ffffff;
+          &:checked + label {
+            background: #109cf1;
+            color: #ffffff;
+          }
+        }
+
+        & label {
+          font-family: Source Sans Pro;
+          padding: 8px;
+          margin-right: 12px;
+          border: 1px solid #109cf1;
+          border-radius: 4px;
         }
       }
     }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactModule } from './modules/contact/contact.module';
 import { ContactPagesCreate } from './modules/contact/ui/pages/create/index.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
+    BrowserModule,
     UserModule,
     DepartmentModule,
     ContactModule,

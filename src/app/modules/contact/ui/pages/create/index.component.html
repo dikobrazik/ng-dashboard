@@ -1,13 +1,23 @@
-<form>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="first-name">First name</label>
-    <input type="text" id="first-name" placeholder="Enter first name" />
+    <input
+      formControlName="firstName"
+      type="text"
+      id="first-name"
+      placeholder="Enter first name"
+    />
 
     <label for="last-name">Last name</label>
-    <input type="text" id="last-name" placeholder="Enter last name" />
+    <input
+      formControlName="lastName"
+      type="text"
+      id="last-name"
+      placeholder="Enter last name"
+    />
 
-    <label for="password">Role</label>
-    <select>
+    <label for="role">Role</label>
+    <select formControlName="role" id="role">
       <option>Admin</option>
       <option>Manager</option>
       <option>CEO</option>
@@ -17,25 +27,33 @@
     </select>
 
     <label for="password">Password</label>
-    <input type="password" id="password" />
+    <input formControlName="password" type="password" id="password" />
 
-    <label for="repear-password">Repeat password</label>
-    <input type="password" id="repear-password" />
+    <label for="repeat-password">Repeat password</label>
+    <input
+      formControlName="repeatPassword"
+      type="password"
+      id="repeat-password"
+    />
 
-    <label for="repear-password">Schedule</label>
-    <div class="schedule-container">
-      <span
-        *ngFor="let day of days"
-        [class.selected]="['Ср', 'Чт'].includes(day)"
-        >{{ day }}</span
-      >
+    <label>Schedule</label>
+    <div class="schedule-container" formArrayName="schedule">
+      <div *ngFor="let phone of scheduleControls; let i = index">
+        <input
+          type="checkbox"
+          [name]="'schedule-' + 'day'"
+          [id]="days[i]"
+          [formControlName]="i"
+        />
+        <label [for]="days[i]">{{ days[i] }}</label>
+      </div>
     </div>
 
-    <ud-checkbox [label]="'Is active'"></ud-checkbox>
+    <ud-checkbox [name]="'active'" [label]="'Is active'"></ud-checkbox>
 
     <div class="controls">
-      <button>Cancel</button>
-      <button class="border">Create</button>
+      <button (click)="onReset()" type="button">Cancel</button>
+      <button class="border" type="submit">Create</button>
     </div>
   </div>
 </form>
