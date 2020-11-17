@@ -17,14 +17,15 @@ export class DepartmentsPagesList implements OnInit {
     this.isLoading = true;
     this.departmentsService.load().subscribe((departments) => {
       this.isLoading = false;
+      console.log(departments);
       this.departments = departments;
     });
   }
 
-  public onAddClick(department: Department) {
+  public addClick(department: Department) {
     console.log('Add department clicked: ', department);
   }
-  public onEditClick(department: Department) {
+  public editClick(department: Department) {
     console.log('Edit department clicked: ', department);
   }
 }

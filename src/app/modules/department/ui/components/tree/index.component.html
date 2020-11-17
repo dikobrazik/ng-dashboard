@@ -1,0 +1,17 @@
+<details open #details (click)="detailsClick($event)">
+  <summary>
+    <department-list-item
+      [opened]="open"
+      [department]="department"
+      (onAddClick)="addClick($event)"
+      (onEditClick)="editClick($event)"
+      [isControlsVisible]="!!department.createdAt"
+    ></department-list-item>
+  </summary>
+  <div>
+    <department-tree
+      *ngFor="let departmentChild of department.children"
+      [department]="departmentChild"
+    ></department-tree>
+  </div>
+</details>

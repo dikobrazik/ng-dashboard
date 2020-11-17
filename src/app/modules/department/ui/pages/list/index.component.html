@@ -6,7 +6,11 @@
 
 <div class="list">
   <app-loader *ngIf="isLoading"></app-loader>
-  <details open *ngFor="let department of departments">
+  <department-tree
+    *ngFor="let department of departments"
+    [department]="department"
+  ></department-tree>
+  <!-- <details open *ngFor="let department of departments">
     <summary>
       <department-list-item [department]="department"></department-list-item>
     </summary>
@@ -14,9 +18,9 @@
       *ngFor="let departmentChild of department.children"
       class="child"
       [department]="departmentChild"
-      (onAddClick)="onAddClick($event)"
-      (onEditClick)="onEditClick($event)"
+      (onAddClick)="addClick($event)"
+      (onEditClick)="editClick($event)"
       [isControlsVisible]="!!departmentChild.createdAt"
     ></department-list-item>
-  </details>
+  </details> -->
 </div>

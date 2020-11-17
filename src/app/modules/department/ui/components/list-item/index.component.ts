@@ -7,9 +7,9 @@ import { Department } from '../../../domain/interfaces/Department';
   styleUrls: ['./index.component.scss'],
 })
 export class DepartmentComponentsListItem {
-  @Input() department: Department = {} as Department;
-  @Input() opened?: boolean;
-  @Input() isControlsVisible?: boolean;
+  @Input() department: Department;
+  @Input() opened: boolean;
+  @Input() isControlsVisible: boolean;
 
   @Output() onAddClick = new EventEmitter<Department>();
   @Output() onEditClick = new EventEmitter<Department>();

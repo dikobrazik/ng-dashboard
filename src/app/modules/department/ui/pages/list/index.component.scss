@@ -22,19 +22,4 @@
   background-color: #fff;
   height: 80vh;
   overflow-y: scroll;
-
-  & summary {
-    outline: none;
-    border: 1px solid #f4f5f7;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-  }
-
-  & details .child {
-    display: block;
-    padding: 0 20px;
-    border: 1px solid #f4f5f7;
-  }
 }
