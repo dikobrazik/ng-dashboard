@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
   FormBuilder,
-  FormControl,
   FormGroup,
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { ContactService } from '../../../domain/services/contact.service';
 
 @Component({
   selector: 'app-contact-create',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
 })
-export class ContactPagesCreate implements OnInit {
+export class ContactPagesCreate {
+  isLoading = false;
+  submitted = false;
   days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
   contactForm: FormGroup;
 
@@ -22,21 +24,32 @@ export class ContactPagesCreate implements OnInit {
     return (this.contactForm.controls['schedule'] as FormArray).controls;
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private contactsService: ContactService
+  ) {
     this.contactForm = this.buildForm();
   }
-
-  ngOnInit() {}
 
   onReset() {
     this.contactForm.reset();
   }
 
   onSubmit() {
-    if (!this.contactForm.valid) {
-      return console.log(this.contactForm);
+    this.submitted = true;
+    if (this.contactForm.valid) {
+      this.isLoading = true;
+      this.contactsService.create(this.contactForm.value).subscribe(
+        () => {
+          this.submitted = false;
+          this.isLoading = false;
+          this.contactForm.reset();
+        },
+        () => {
+          this.isLoading = false;
+        }
+      );
     }
-    console.log(this.contactForm.valid, this.contactForm.value);
   }
 
   private buildForm(): FormGroup {

@@ -1,9 +1,10 @@
-<form [formGroup]="contactForm" #ngForm="ngForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="contactForm" #myForm (ngSubmit)="onSubmit()">
+  <app-loader *ngIf="isLoading" behavior="absolute"></app-loader>
   <div>
     <form-field-wrapper
       label="First name"
       labelFor="firstName"
-      [showErrors]="ngForm.submitted"
+      [showErrors]="submitted"
       [controller]="contactForm.get('firstName')"
     >
       <input
@@ -18,7 +19,7 @@
     <form-field-wrapper
       label="Last name"
       labelFor="lastName"
-      [showErrors]="ngForm.submitted"
+      [showErrors]="submitted"
       [controller]="contactForm.get('lastName')"
     >
       <input
@@ -33,7 +34,7 @@
     <form-field-wrapper
       label="Role"
       labelFor="role"
-      [showErrors]="ngForm.submitted"
+      [showErrors]="submitted"
       [controller]="contactForm.get('role')"
     >
       <select formControlName="role" id="role">
@@ -49,7 +50,7 @@
     <form-field-wrapper
       label="Password"
       labelFor="password"
-      [showErrors]="ngForm.submitted"
+      [showErrors]="submitted"
       [controller]="contactForm.get('password')"
     >
       <input formControlName="password" type="password" id="password" />
@@ -58,7 +59,7 @@
     <form-field-wrapper
       label="Repeat password"
       labelFor="repeatPassword"
-      [showErrors]="ngForm.submitted"
+      [showErrors]="submitted"
       [controller]="contactForm.get('repeatPassword')"
     >
       <input
@@ -70,7 +71,7 @@
 
     <form-field-wrapper
       label="Schedule"
-      [showErrors]="ngForm.submitted"
+      [showErrors]="submitted"
       [controller]="contactForm.get('schedule')"
     >
       <div class="schedule-container" formArrayName="schedule">
