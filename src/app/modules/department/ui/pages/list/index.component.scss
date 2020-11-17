@@ -20,6 +20,8 @@
 .list {
   margin-top: 10px;
   background-color: #fff;
+  height: 80vh;
+  overflow-y: scroll;
 
   & summary {
     outline: none;

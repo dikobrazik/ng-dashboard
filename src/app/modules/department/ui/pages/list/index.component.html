@@ -3,27 +3,20 @@
   <p>1</p>
   <p>2</p>
 </div>
+
 <div class="list">
-  <details open>
+  <app-loader *ngIf="isLoading"></app-loader>
+  <details open *ngFor="let department of departments">
     <summary>
-      <department-list-item
-        [department]="{ id: '197', name: 'Root Department' }"
-      ></department-list-item>
+      <department-list-item [department]="department"></department-list-item>
     </summary>
     <department-list-item
+      *ngFor="let departmentChild of department.children"
       class="child"
-      [department]="{
-        id: '203',
-        createdAt: '12.04.2017 в 08:23',
-        name: 'Разработка'
-      }"
+      [department]="departmentChild"
       (onAddClick)="onAddClick($event)"
       (onEditClick)="onEditClick($event)"
-      [isControlsVisible]="true"
-    ></department-list-item>
-    <department-list-item
-      class="child"
-      [department]="{ id: '205', name: 'Внедрение' }"
+      [isControlsVisible]="!!departmentChild.createdAt"
     ></department-list-item>
   </details>
 </div>
