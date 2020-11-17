@@ -1,0 +1,13 @@
+td {
+  border-bottom: 1px solid #ebeff2;
+  padding: 20px 12px;
+  font-family: Poppins;
+  font-size: 13px;
+  color: #707683;
+
+  &.name {
+    font-weight: 500;
+    font-size: 15px;
+    color: #323c47;
+  }
+}

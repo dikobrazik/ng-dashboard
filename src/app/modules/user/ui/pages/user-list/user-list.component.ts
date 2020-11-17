@@ -21,13 +21,16 @@ const headers = [
 export class UsersListPage implements OnInit {
   headers: string[];
   users: User[] = [];
+  isLoading = false;
   constructor(private userService: UserService) {
     this.headers = headers;
   }
 
   ngOnInit(): void {
-    this.userService.load().then((users) => {
+    this.isLoading = true;
+    this.userService.load().subscribe((users) => {
       this.users = users;
+      this.isLoading = false;
     });
   }
 }

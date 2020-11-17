@@ -8,18 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-      <td>
-        <ud-checkbox [name]="user.id"></ud-checkbox>
+    <tr *ngIf="isLoading">
+      <td colspan="7">
+        <app-loader></app-loader>
       </td>
-      <td class="name">
-        {{ user.name }}
-      </td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.company }}</td>
-      <td>{{ user.role }}</td>
-      <td>{{ user.forecast }} %</td>
-      <td>{{ user.lastActivityDate }}</td>
     </tr>
+    <tr *ngFor="let user of users" users-table-row [user]="user"></tr>
   </tbody>
 </table>

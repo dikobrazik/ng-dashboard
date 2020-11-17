@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import * as faker from 'faker';
-import { User } from 'src/app/modules/user/domain/interfaces/User';
 import { utc } from 'moment';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+import { User } from 'src/app/modules/user/domain/interfaces/User';
 
 @Injectable()
 export class UserService {
-  public async load(): Promise<User[]> {
-    await new Promise((res) => setTimeout(res, 2000));
+  public load(): Observable<User[]> {
+    return of(this.generateUsers()).pipe(delay(2000));
+  }
+
+  private generateUsers(): User[] {
     return Array(10)
       .fill(undefined)
       .map(
