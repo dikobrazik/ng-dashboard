@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UDFormModule } from '../ud-form/ud-form.module';
 import { CommonComponentsModules } from '../ud-ui/components/components.module';
+import { ContactRoutingModule } from './contact-routing.module';
 import { ContactService } from './domain/services/contact.service';
 import { ContactPagesCreate } from './ui/pages/create/index.component';
 
 @NgModule({
   declarations: [ContactPagesCreate],
   imports: [
+    ContactRoutingModule,
     UDFormModule,
     CommonModule,
     CommonComponentsModules,

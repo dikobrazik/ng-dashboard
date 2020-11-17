@@ -1,25 +1,33 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ContactModule } from './modules/contact/contact.module';
 import { ContactPagesCreate } from './modules/contact/ui/pages/create/index.component';
-import { DepartmentModule } from './modules/department/departement.module';
-import { DepartmentsPagesList } from './modules/department/ui/pages/list/index.component';
 import { LayoutComponent } from './modules/layout/ui/layout/layout.component';
-import { UsersListPage } from './modules/user/ui/pages/user-list/user-list.component';
-import { UserModule } from './modules/user/user.module';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'users', component: UsersListPage },
-      { path: 'departments', component: DepartmentsPagesList },
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('src/app/modules/user/user.module').then((m) => m.UserModule),
+      },
+      {
+        path: 'departments',
+        loadChildren: () =>
+          import('src/app/modules/department/departement.module').then(
+            (m) => m.DepartmentModule
+          ),
+      },
       {
         path: 'contacts',
-        children: [{ path: 'add', component: ContactPagesCreate }],
+        loadChildren: () =>
+          import('src/app/modules/contact/contact.module').then(
+            (m) => m.ContactModule
+          ),
       },
     ],
   },
@@ -27,13 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    BrowserModule,
-    UserModule,
-    DepartmentModule,
-    ContactModule,
-  ],
+  imports: [RouterModule.forRoot(routes), BrowserModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
