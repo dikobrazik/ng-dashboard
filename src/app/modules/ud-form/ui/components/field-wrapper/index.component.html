@@ -1,0 +1,11 @@
+<ng-container>
+  <label *ngIf="!!label" [for]="labelFor">{{ label }}</label>
+
+  <ng-content></ng-content>
+
+  <ng-container *ngIf="shouldShowErrors">
+    <ul>
+      <li *ngFor="let error of errors">{{ error }}</li>
+    </ul>
+  </ng-container>
+</ng-container>
