@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IconNames } from 'src/app/modules/ud-ui/components/icon/index.component';
+import { SidebarService } from '../../../domain/services/sidebar.service';
 
 export type Route = {
   href: string;
@@ -13,6 +14,7 @@ export type Route = {
   styleUrls: ['./index.component.scss'],
 })
 export class LayoutComponentsSidebar {
+  toggled = true;
   routes: Route[] = [
     {
       href: '/users',
@@ -30,4 +32,12 @@ export class LayoutComponentsSidebar {
       icon: 'tasks',
     },
   ];
+
+  constructor(private sidebarService: SidebarService) {
+    sidebarService.sub.subscribe((toggled) => (this.toggled = toggled));
+  }
+
+  public toggle() {
+    this.sidebarService.close();
+  }
 }
