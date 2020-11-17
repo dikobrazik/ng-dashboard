@@ -10,17 +10,4 @@
     *ngFor="let department of departments"
     [department]="department"
   ></department-tree>
-  <!-- <details open *ngFor="let department of departments">
-    <summary>
-      <department-list-item [department]="department"></department-list-item>
-    </summary>
-    <department-list-item
-      *ngFor="let departmentChild of department.children"
-      class="child"
-      [department]="departmentChild"
-      (onAddClick)="addClick($event)"
-      (onEditClick)="editClick($event)"
-      [isControlsVisible]="!!departmentChild.createdAt"
-    ></department-list-item>
-  </details> -->
 </div>

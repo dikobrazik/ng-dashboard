@@ -11,14 +11,14 @@ export class DepartmentComponentsListItem {
   @Input() opened: boolean;
   @Input() isControlsVisible: boolean;
 
-  @Output() onAddClick = new EventEmitter<Department>();
-  @Output() onEditClick = new EventEmitter<Department>();
+  @Output() addClick = new EventEmitter<Department>();
+  @Output() editClick = new EventEmitter<Department>();
 
-  public onAdd() {
-    this.onAddClick.emit(this.department);
+  public addEvent() {
+    this.addClick.emit(this.department);
   }
 
-  public onEdit() {
-    this.onEditClick.emit(this.department);
+  public editEvent() {
+    this.editClick.emit(this.department);
   }
 }

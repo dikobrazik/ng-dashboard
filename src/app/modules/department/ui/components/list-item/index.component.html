@@ -17,7 +17,7 @@
     <p class="subtitle">Создан</p>
   </div>
   <div *ngIf="isControlsVisible" class="controls">
-    <div (click)="onAdd()">
+    <div (click)="addEvent()">
       <ud-icon
         [iconName]="'plus-round'"
         [width]="'24px'"
@@ -27,7 +27,7 @@
       ></ud-icon>
     </div>
 
-    <div (click)="onEdit()">
+    <div (click)="editEvent()">
       <ud-icon
         [iconName]="'edit'"
         [width]="'24px'"

@@ -3,8 +3,8 @@
     <department-list-item
       [opened]="open"
       [department]="department"
-      (onAddClick)="addClick($event)"
-      (onEditClick)="editClick($event)"
+      (addClick)="addClick($event)"
+      (editClick)="editClick($event)"
       [isControlsVisible]="!!department.createdAt"
     ></department-list-item>
   </summary>

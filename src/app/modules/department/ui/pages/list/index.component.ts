@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 import { Department } from '../../../domain/interfaces/Department';
 import { DepartmentsService } from '../../../domain/services/departments.service';
 
@@ -15,17 +16,15 @@ export class DepartmentsPagesList implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.departmentsService.load().subscribe((departments) => {
-      this.isLoading = false;
-      console.log(departments);
-      this.departments = departments;
-    });
-  }
-
-  public addClick(department: Department) {
-    console.log('Add department clicked: ', department);
-  }
-  public editClick(department: Department) {
-    console.log('Edit department clicked: ', department);
+    this.departmentsService
+      .load()
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((departments) => {
+        this.departments = departments;
+      });
   }
 }
