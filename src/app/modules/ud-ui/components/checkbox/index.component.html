@@ -1,5 +1,10 @@
 <div>
-  <input type="checkbox" [name]="name" id="{{ id }}" />
+  <input
+    type="checkbox"
+    (change)="onValueChange($event)"
+    [name]="name"
+    id="{{ id }}"
+  />
   <label for="{{ id }}" class="checkbox"></label>
   <label *ngIf="label" for="{{ id }}" class="label">{{ label }}</label>
 </div>
