@@ -1,55 +1,96 @@
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="contactForm" #ngForm="ngForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="first-name">First name</label>
-    <input
-      formControlName="firstName"
-      type="text"
-      id="first-name"
-      placeholder="Enter first name"
-    />
+    <form-field-wrapper
+      label="First name"
+      labelFor="firstName"
+      [showErrors]="ngForm.submitted"
+      [controller]="contactForm.get('firstName')"
+    >
+      <input
+        formControlName="firstName"
+        type="text"
+        autocomplete="off"
+        id="firstName"
+        placeholder="Enter first name"
+      />
+    </form-field-wrapper>
 
-    <label for="last-name">Last name</label>
-    <input
-      formControlName="lastName"
-      type="text"
-      id="last-name"
-      placeholder="Enter last name"
-    />
+    <form-field-wrapper
+      label="Last name"
+      labelFor="lastName"
+      [showErrors]="ngForm.submitted"
+      [controller]="contactForm.get('lastName')"
+    >
+      <input
+        formControlName="lastName"
+        type="text"
+        autocomplete="off"
+        id="lastName"
+        placeholder="Enter last name"
+      />
+    </form-field-wrapper>
 
-    <label for="role">Role</label>
-    <select formControlName="role" id="role">
-      <option>Admin</option>
-      <option>Manager</option>
-      <option>CEO</option>
-      <option>Developer</option>
-      <option>Engineer</option>
-      <option>Designer</option>
-    </select>
+    <form-field-wrapper
+      label="Role"
+      labelFor="role"
+      [showErrors]="ngForm.submitted"
+      [controller]="contactForm.get('role')"
+    >
+      <select formControlName="role" id="role">
+        <option>Admin</option>
+        <option>Manager</option>
+        <option>CEO</option>
+        <option>Developer</option>
+        <option>Engineer</option>
+        <option>Designer</option>
+      </select>
+    </form-field-wrapper>
 
-    <label for="password">Password</label>
-    <input formControlName="password" type="password" id="password" />
+    <form-field-wrapper
+      label="Password"
+      labelFor="password"
+      [showErrors]="ngForm.submitted"
+      [controller]="contactForm.get('password')"
+    >
+      <input formControlName="password" type="password" id="password" />
+    </form-field-wrapper>
 
-    <label for="repeat-password">Repeat password</label>
-    <input
-      formControlName="repeatPassword"
-      type="password"
-      id="repeat-password"
-    />
+    <form-field-wrapper
+      label="Repeat password"
+      labelFor="repeatPassword"
+      [showErrors]="ngForm.submitted"
+      [controller]="contactForm.get('repeatPassword')"
+    >
+      <input
+        formControlName="repeatPassword"
+        type="password"
+        id="repeatPassword"
+      />
+    </form-field-wrapper>
 
-    <label>Schedule</label>
-    <div class="schedule-container" formArrayName="schedule">
-      <div *ngFor="let phone of scheduleControls; let i = index">
-        <input
-          type="checkbox"
-          [name]="'schedule-' + 'day'"
-          [id]="days[i]"
-          [formControlName]="i"
-        />
-        <label [for]="days[i]">{{ days[i] }}</label>
+    <form-field-wrapper
+      label="Schedule"
+      [showErrors]="ngForm.submitted"
+      [controller]="contactForm.get('schedule')"
+    >
+      <div class="schedule-container" formArrayName="schedule">
+        <div *ngFor="let phone of scheduleControls; let i = index">
+          <input
+            type="checkbox"
+            [name]="'schedule-' + 'day'"
+            [id]="days[i]"
+            [formControlName]="i"
+          />
+          <label [for]="days[i]">{{ days[i] }}</label>
+        </div>
       </div>
-    </div>
+    </form-field-wrapper>
 
-    <ud-checkbox [name]="'active'" [label]="'Is active'"></ud-checkbox>
+    <ud-checkbox
+      name="active"
+      formControlName="active"
+      label="Is active"
+    ></ud-checkbox>
 
     <div class="controls">
       <button (click)="onReset()" type="button">Cancel</button>
